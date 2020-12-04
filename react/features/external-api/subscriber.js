@@ -54,3 +54,9 @@ StateListenerRegistry.register(
         }
     }
 );
+
+StateListenerRegistry.register(
+    /* selector */ state => state['features/chat'].isOpen,
+    /* listener */ displayChat => {
+        APP.API.notifyChatChanged(displayChat);
+    });

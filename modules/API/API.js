@@ -1023,6 +1023,21 @@ class API {
     }
 
     /**
+     * Notify external application (if API is enabled) that chat has been
+     * entered or exited.
+     *
+     * @param {string} visible - True if chat is currently displayed, false
+     * otherwise.
+     * @returns {void}
+     */
+    notifyChatChanged(visible: boolean) {
+        this._sendEvent({
+            name: 'chat-changed',
+            visible
+        });
+    }
+
+    /**
      * Disposes the allocated resources.
      *
      * @returns {void}
